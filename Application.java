@@ -10,10 +10,12 @@ import java.util.*;
  */
 public class Application {
     private ArrayList<Food> newFood = new ArrayList<>();
+    private ArrayList<Order> ordered = new ArrayList<>();
     private String date;
     
     public void addNewFood(Food food){
         newFood.add(food);
+        System.out.println(food.getFoodName()+" successfully added to the kitchen");
     }
     
     public void displayFoods(){
@@ -24,24 +26,27 @@ public class Application {
             System.out.println("Description: "+food.getDesc());
             System.out.println("Spicy level: "+food.getLevel());
             System.out.println("Ingredients: ");
-            for(int i = 0; i < food.getIngredient();i++){
-                System.out.print(ingredient+", ");
-            }
+            food.displayFd();
             
             System.out.println("\n-------------------------------------------------------");
         }
     }
     
     public void order(User user, Food food, String date){
-        
-        this.date = date;
+        Order orders = new Order(user,food,date);
+        ordered.add(orders);
+        System.out.println(orders.getUser().getName()+" ordered "+orders.getFood().getFoodName()+" on "+orders.getDate());
     }
     
-    public String getDate(){
-        return date;
-    }
     
-//    public void displayOrders(){
-//        for()
-//    }
+    public void displayOrders(){
+        System.out.println("Order List: ");
+        System.out.println("-------------------------------------------------");
+        for(Order order : ordered){
+            System.out.println("User: "+order.getUser().getName());
+            System.out.println("Food: "+order.getFood().getFoodName());
+            System.out.println("Date: "+order.getDate());
+            System.out.println("-------------------------------------------------");
+        }
+    }
 }

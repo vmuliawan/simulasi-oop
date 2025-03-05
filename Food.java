@@ -39,7 +39,13 @@ public class Food {
         ingredients.add(ingredient);
     }
     
-    public List<Ingredient> getIngredient(){
+    public ArrayList<Ingredient> getIngredient(){
         return ingredients;
+    }
+    
+    public void displayFd(){
+        for(Ingredient foods : ingredients){
+            System.out.print(foods.getBahan()+" ,");
+        }
     }
 }

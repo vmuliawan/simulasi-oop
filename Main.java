@@ -50,8 +50,8 @@ public class Main {
         yourMeal.order(secondUser, food2, "20 February 2025");
         yourMeal.order(firstUser, food2, "26 February 2025");
 
-//        System.out.printf("Order count: %d\n", Order.getCount());
-//
-//        yourMeal.displayOrders();
+        System.out.printf("Order count: %d\n", Order.getCount());
+
+        yourMeal.displayOrders();
     }
 }
